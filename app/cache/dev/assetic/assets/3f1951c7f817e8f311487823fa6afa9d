@@ -1,0 +1,39 @@
+html, body, .container {
+    height: 100%;
+}
+.container {
+    display: table;
+    vertical-align: middle;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+.status-0 {
+    color: gray;
+}
+.status-1 {
+    color: #f5e79e;
+}
+.status-2 {
+    color: green;
+}
+.status-3 {
+    color: red;
+}
+.status-0, .status-1, .status-2, .status-3 {
+    font-weight: bold;
+}
+button[disabled="disabled"],
+button[disabled="disabled"]:hover {
+    color: lightgrey;
+}
+.panel.panel-success > .panel-heading {
+    background-color: #ff3f00;
+    background-image: none;
+    color: white;
+    font-weight: 400;
+}
+.to-left {
+    text-align: right;
+}
