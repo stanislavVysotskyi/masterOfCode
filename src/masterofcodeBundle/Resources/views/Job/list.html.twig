@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Master of code test work!</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="test info tor test" name="description">
+    <meta content="test, task, masterOfCode, symfony2, job" name="keywords">
+    {% stylesheets '@masterofcodeBundle/Resources/public/css/*' %}
+    <link href="{{ asset_url }}" rel="stylesheet">
+    {% endstylesheets %}
+    {% javascripts '@masterofcodeBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <base href="{{ url('masterofcode_homepage') }}">
+</head>
+<body>
+<div class="container">
+    <div class="row vertical-center-row">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                List of jobs:
+            </div>
+            <div class="panel-body">
+                {% if jobs %}
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Job id</th>
+                            <th>Local path</th>
+                            <th>Mime type</th>
+                            <th>Status</th>
+                            <th>Last update</th>
+                            <th class="to-left">Download</th>
+                        </tr>
+                        </thead>
+                        <tbody class="jobs" data-status-id="{{ session }}">
+                        {% for job in jobs %}
+                            <tr class="{% if session == job.getId() %}info{% endif %}">
+                                <td>{{ job.getId() }}</td>
+                                <td>{{ job.getPath() }}</td>
+                                <td>{{ job.getMime() }}</td>
+                                <td>{{ job.getLastUpdate() }}</td>
+                                <td class="status-{{ job.getStatus() }}">{{ job.getStatusMessage() }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs pull-right">
+                                        {% if job.getStatus() != 2 %}
+                                            <button type="button" class="btn btn-default" disabled="disabled">
+                                                <span class="glyphicon glyphicon-download"></span>
+                                            </button>
+                                        {% else %}
+                                            <a href="download/{{ job.getId() }}" type="button" class="btn btn-default">
+                                                <span class="glyphicon glyphicon-download"></span>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    No jobs have been found.
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

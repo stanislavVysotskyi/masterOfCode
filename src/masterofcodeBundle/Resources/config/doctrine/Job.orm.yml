@@ -1,0 +1,26 @@
+masterofcodeBundle\Entity\Job:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        path:
+            type: string
+            length: '255'
+            notnull: true
+        status:
+            type: smallint
+            nullable: true
+            options:
+                default: 0
+        mime:
+            type: string
+            length: '100'
+        startTime:
+            type: datetime
+            column: start_time
+    lifecycleCallbacks: {  }

@@ -1,0 +1,3 @@
+masterofcode:
+    resource: "@masterofcodeBundle/Resources/config/routing.yml"
+    prefix:   /

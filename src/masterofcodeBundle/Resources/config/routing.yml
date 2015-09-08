@@ -1,0 +1,16 @@
+masterofcode_homepage:
+    path:     /
+    methods:  GET
+    defaults: { _controller: masterofcodeBundle:Job:list }
+masterofcode_session_status:
+    path:     /status/{session}
+    methods:  GET
+    defaults: { _controller: masterofcodeBundle:Job:list }
+masterofcode_download:
+    path:     /download/{id}
+    methods:  GET
+    defaults: { _controller: masterofcodeBundle:Job:download }
+masterofcode_last_jobs:
+    path:     /get-jobs/
+    methods:  GET
+    defaults: { _controller: masterofcodeBundle:Job:last }
