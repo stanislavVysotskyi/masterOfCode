@@ -2,7 +2,6 @@ Master Of Code
 ============
 
 A Symfony project created on September 5, 2015, 1:53 pm.
-
 ============
 
 The steps to install Project:
